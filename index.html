@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>คู่มือส่งตรวจ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans Thai', sans-serif;
+      background-color: #111; /* ดำหรู */
+      color: #d4af37; /* ทอง */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    header img {
+      max-width: 200px;
+      height: auto;
+    }
+
+    h1 {
+      color: #d4af37;
+      margin-bottom: 30px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px; /* ระยะห่างจากปุ่ม PDF ลงมา */
+      justify-content: center;
+    }
+
+    a.pdf-link {
+      background-color: transparent;
+      color: #d4af37;
+      border: 2px solid #d4af37;
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    a.pdf-link:hover {
+      background-color: #d4af37;
+      color: #111;
+    }
+
+    /* ปุ่มเปลี่ยนภาษาแบบไอคอนธง */
+    .lang-buttons {
+      margin-top: 70px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .lang-buttons button {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      font-size: 12px;
+      border: 1px solid #d4af37;
+      border-radius: 6px;
+      background-color: transparent;
+      color: #d4af37;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-buttons button img {
+      width: 20px;
+      height: auto;
+    }
+
+    .lang-buttons button:hover {
+      background-color: #d4af37;
+      color: #111;
+    }
+
+    footer {
+      margin-top: 10px;
+      font-size: 11px;
+      color: #aaa;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- โลโก้ -->
+  <header>
+    <img src="PNG LOGO.png" alt="บริษัท MEDEZE">
+  </header>
+
+  <h1 id="main-title">กรุณาเลือกคู่มือส่งตรวจ</h1>
+
+  <div class="button-container">
+    <a class="pdf-link" id="nk-link" href="nk-guide.pdf" target="_blank">NK Test</a>
+    <a class="pdf-link" id="masuyama-link" href="masuyama-guide.pdf" target="_blank">Masuyama's Test</a>
+  </div>
+
+  <!-- ปุ่มเปลี่ยนภาษา ย้ายมาด้านล่างเหนือ footer และเว้นระยะห่าง -->
+  <div class="lang-buttons">
+    <button onclick="setLanguage('th')">
+      <img src="https://flagcdn.com/w20/th.png" alt="TH"> ไทย
+    </button>
+    <button onclick="setLanguage('en')">
+      <img src="https://flagcdn.com/w20/gb.png" alt="EN"> English
+    </button>
+  </div>
+
+  <footer>
+    © 2025 MEDEZE NK COMPANY LIMITED
+  </footer>
+
+  <script>
+    // ข้อความสำหรับแต่ละภาษา
+    const texts = {
+      th: {
+        title: "กรุณาเลือกคู่มือส่งตรวจ",
+        nk: "NK Test",
+        masuyama: "Masuyama's Test"
+      },
+      en: {
+        title: "Please select the test guide",
+        nk: "NK Test",
+        masuyama: "Masuyama's Test"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById('main-title').textContent = texts[lang].title;
+      document.getElementById('nk-link').textContent = texts[lang].nk;
+      document.getElementById('masuyama-link').textContent = texts[lang].masuyama;
+    }
+  </script>
+
+</body>
+</html>
