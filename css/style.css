@@ -236,11 +236,21 @@
     border-radius: var(--radius-lg);
     font-size: 1.0625rem;
     font-weight: 600;
-    text-align: center;
     text-decoration: none;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s, transform 0.15s;
     -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* ห่อข้อความใน span เพื่อให้ Safari/Chrome มือถือ จัดกึ่งกลางแนวตั้งเมื่อข้อความขึ้นหลายบรรทัด */
+  .pdf-link-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    align-self: stretch;
+    min-height: 0;
   }
   
   @media (min-width: 480px) {

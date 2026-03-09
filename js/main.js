@@ -18,8 +18,8 @@ function setLanguage(lang, isUserClick) {
     document.getElementById("address").textContent = t.addressVal;
     document.getElementById("label-hours").textContent = t.hours;
     document.getElementById("hours").textContent = t.hoursVal;
-    document.getElementById("nk-link").textContent = t.nk;
-    document.getElementById("masuyama-link").textContent = t.masuyama;
+    document.getElementById("nk-link-text").textContent = t.nk;
+    document.getElementById("masuyama-link-text").textContent = t.masuyama;
     const requestFormEl = document.getElementById("request-form-link");
     if (requestFormEl && t.requestForm) requestFormEl.textContent = t.requestForm;
     const requestFormLabelEl = document.getElementById("request-form-label");
