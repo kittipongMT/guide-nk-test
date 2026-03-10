@@ -305,29 +305,28 @@
       rgba(212, 175, 55, 0.2)
     );
     box-shadow:
-      0 0 16px rgba(212, 175, 55, 0.4),
-      0 0 32px rgba(229, 199, 107, 0.25);
+      0 0 0 1px rgba(212, 175, 55, 0.18),
+      0 6px 18px rgba(0, 0, 0, 0.45);
     transform: translateY(0);
     transition:
       transform 0.16s ease-out,
-      box-shadow 0.16s ease-out,
-      filter 0.16s ease-out;
+      box-shadow 0.16s ease-out;
   }
   
   #nk-link::before,
   #masuyama-link::before {
     content: "";
     position: absolute;
-    inset: -18%;
+    inset: -10%;
     border-radius: inherit;
     background:
-      radial-gradient(circle at 50% 0%, rgba(240, 216, 120, 0.45), transparent 60%),
-      radial-gradient(circle at 0% 100%, rgba(212, 175, 55, 0.3), transparent 60%);
-    filter: blur(20px);
-    opacity: 0.6;
+      radial-gradient(circle at 50% 0%, rgba(240, 216, 120, 0.22), transparent 62%),
+      radial-gradient(circle at 0% 100%, rgba(212, 175, 55, 0.16), transparent 62%);
+    filter: blur(10px);
+    opacity: 0.18;
     z-index: -1;
     pointer-events: none;
-    animation: nk-gold-glow 4s ease-in-out infinite;
+    animation: none;
   }
   
   #nk-link .pdf-link-inner,
@@ -357,17 +356,17 @@
   #masuyama-link:hover {
     transform: translateY(-1px);
     box-shadow:
-      0 0 20px rgba(212, 175, 55, 0.55),
-      0 0 40px rgba(229, 199, 107, 0.35);
-    filter: saturate(1.05);
+      0 0 0 1px rgba(229, 199, 107, 0.32),
+      0 0 18px rgba(212, 175, 55, 0.22),
+      0 10px 24px rgba(0, 0, 0, 0.55);
   }
   
   #nk-link:active,
   #masuyama-link:active {
     transform: translateY(1px) scale(0.99);
     box-shadow:
-      0 0 14px rgba(212, 175, 55, 0.4),
-      0 0 28px rgba(0, 0, 0, 0.7);
+      0 0 0 1px rgba(212, 175, 55, 0.22),
+      0 6px 18px rgba(0, 0, 0, 0.65);
   }
   
   .cards-request {
