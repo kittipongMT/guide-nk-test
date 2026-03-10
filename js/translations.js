@@ -13,6 +13,13 @@ const texts = {
       hoursVal: "จันทร์–ศุกร์ 08:30–17:30 น.",
       nk: "NK Test",
       masuyama: "Masuyama's Test",
+      stockCompany: "คงเหลือที่บริษัท",
+      stockClinic: "คงเหลือที่คลินิกทั้งหมด",
+      stockUpdated: "อัปเดตล่าสุด",
+      stockUnits: "หลอด",
+      loading: "กำลังโหลด...",
+      notFound: "ไม่พบข้อมูล",
+      stockLoadError: "ไม่สามารถโหลดข้อมูลได้",
       requestFormLabel: "ดาวน์โหลดเอกสารประกอบการส่งตัวอย่าง",
       requestForm: "ดาวน์โหลด"
     },
@@ -30,6 +37,13 @@ const texts = {
       hoursVal: "Monday – Friday: 08:30\u00A0AM – 05:30\u00A0PM",
       nk: "NK Test",
       masuyama: "Masuyama's Test",
+      stockCompany: "Company stock",
+      stockClinic: "Clinic stock (total)",
+      stockUpdated: "Last updated",
+      stockUnits: "tubes",
+      loading: "Loading...",
+      notFound: "No data",
+      stockLoadError: "Unable to load data",
       requestFormLabel: "Download request form & supporting documents",
       requestForm: "Download"
     }
