@@ -274,21 +274,6 @@
   }
   
   /* ปุ่ม NK Test / Masuyama: กรอบเรืองแสงโทนทอง (พื้นหลังปุ่มแบบเดิม) */
-  @keyframes nk-gold-glow {
-    0% {
-      opacity: 0.3;
-      transform: scale(0.96);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0.3;
-      transform: scale(0.96);
-    }
-  }
-  
   #nk-link,
   #masuyama-link {
     position: relative;
