@@ -10,6 +10,8 @@
     --nav-bg: #0a0a0a;
     --radius: 14px;
     --radius-lg: 18px;
+    --gold: #d4af37;
+    --gold-light: #e5c76b;
     --touch-min: 48px;
     --safe-top: env(safe-area-inset-top, 0);
     --safe-bottom: env(safe-area-inset-bottom, 0);
@@ -269,6 +271,103 @@
   a.pdf-link:active {
     transform: scale(0.98);
     background: #1a1a1a;
+  }
+  
+  /* ปุ่ม NK Test / Masuyama: กรอบเรืองแสงโทนทอง (พื้นหลังปุ่มแบบเดิม) */
+  @keyframes nk-gold-glow {
+    0% {
+      opacity: 0.3;
+      transform: scale(0.96);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0.3;
+      transform: scale(0.96);
+    }
+  }
+  
+  #nk-link,
+  #masuyama-link {
+    position: relative;
+    overflow: visible;
+    border: none;
+    padding: 1px;
+    min-height: 58px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
+      120deg,
+      rgba(212, 175, 55, 0.2),
+      rgba(229, 199, 107, 0.4),
+      rgba(240, 216, 120, 0.3),
+      rgba(212, 175, 55, 0.2)
+    );
+    box-shadow:
+      0 0 16px rgba(212, 175, 55, 0.4),
+      0 0 32px rgba(229, 199, 107, 0.25);
+    transform: translateY(0);
+    transition:
+      transform 0.16s ease-out,
+      box-shadow 0.16s ease-out,
+      filter 0.16s ease-out;
+  }
+  
+  #nk-link::before,
+  #masuyama-link::before {
+    content: "";
+    position: absolute;
+    inset: -18%;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(240, 216, 120, 0.45), transparent 60%),
+      radial-gradient(circle at 0% 100%, rgba(212, 175, 55, 0.3), transparent 60%);
+    filter: blur(20px);
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+    animation: nk-gold-glow 4s ease-in-out infinite;
+  }
+  
+  #nk-link .pdf-link-inner,
+  #masuyama-link .pdf-link-inner {
+    position: relative;
+    z-index: 1;
+    background: var(--bg-card);
+    border-radius: calc(var(--radius-lg) - 2px);
+    padding: 17px 23px;
+    min-height: 54px;
+    border: 1px solid rgb(255 255 255 / 10%);
+  }
+  
+  @media (min-width: 480px) {
+    #nk-link,
+    #masuyama-link {
+      min-height: 74px;
+    }
+    #nk-link .pdf-link-inner,
+    #masuyama-link .pdf-link-inner {
+      padding: 21px 27px;
+      min-height: 70px;
+    }
+  }
+  
+  #nk-link:hover,
+  #masuyama-link:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 0 20px rgba(212, 175, 55, 0.55),
+      0 0 40px rgba(229, 199, 107, 0.35);
+    filter: saturate(1.05);
+  }
+  
+  #nk-link:active,
+  #masuyama-link:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow:
+      0 0 14px rgba(212, 175, 55, 0.4),
+      0 0 28px rgba(0, 0, 0, 0.7);
   }
   
   .cards-request {
