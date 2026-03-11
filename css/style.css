@@ -423,8 +423,15 @@
       align-items: stretch;
       gap: 6px;
     }
+    /* บนหน้าจอแคบให้หัวข้อกับเวลาอัปเดตเรียงคนละบรรทัด
+       ป้องกันข้อความ EN ยาว ๆ ไปดัน icon หล่นลงด้านล่าง */
+    .stock-heading-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
     .stock-updated {
       white-space: normal;
+      margin-top: 1px;
     }
   }
  
