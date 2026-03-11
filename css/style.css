@@ -428,7 +428,7 @@
     }
   }
  
-  /* ปุ่ม NK Test / Masuyama: เส้นขอบทองบาง ๆ เรียบหรู */
+/* ปุ่ม NK Test / Masuyama: กรอบทองเรียบหรู เข้าชุดกับโลโก้ */
   #nk-link,
   #masuyama-link {
     position: relative;
@@ -437,16 +437,18 @@
     padding: 1px;
     min-height: 58px;
     border-radius: var(--radius-lg);
-    background: linear-gradient(
-      125deg,
-      rgba(212, 175, 55, 0.0),
-      rgba(212, 175, 55, 0.18),
-      rgba(240, 216, 120, 0.32),
-      rgba(212, 175, 55, 0.18),
-      rgba(212, 175, 55, 0.0)
-    );
+    background: radial-gradient(circle at 0% 0%, rgba(229, 199, 107, 0.2), transparent 55%),
+      linear-gradient(
+        125deg,
+        rgba(212, 175, 55, 0.0),
+        rgba(212, 175, 55, 0.22),
+        rgba(240, 216, 120, 0.4),
+        rgba(212, 175, 55, 0.22),
+        rgba(212, 175, 55, 0.0)
+      );
     box-shadow:
-      0 0 0 1px rgba(212, 175, 55, 0.32);
+      0 0 0 1px rgba(212, 175, 55, 0.36),
+      0 0 14px rgba(212, 175, 55, 0.28);
     transform: translateY(0);
     transition:
       transform 0.16s ease-out,
@@ -461,10 +463,10 @@
     inset: -18%;
     border-radius: inherit;
     background:
-      radial-gradient(circle at 0% 0%, rgba(240, 216, 120, 0.22), transparent 62%),
+      radial-gradient(circle at 0% 0%, rgba(240, 216, 120, 0.2), transparent 62%),
       radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.16), transparent 62%);
     filter: blur(18px);
-    opacity: 0.2;
+    opacity: 0.22;
     z-index: -1;
     pointer-events: none;
     animation: none;
@@ -478,7 +480,7 @@
     border-radius: calc(var(--radius-lg) - 2px);
     padding: 17px 23px;
     min-height: 54px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: none;
     box-shadow: none;
   }
   
@@ -498,17 +500,17 @@
   #masuyama-link:hover {
     transform: translateY(-1px);
     box-shadow:
-      0 0 0 1px rgba(229, 199, 107, 0.42),
-      0 0 18px rgba(212, 175, 55, 0.28);
-    filter: saturate(1.05);
+      0 0 0 1px rgba(229, 199, 107, 0.5),
+      0 0 18px rgba(212, 175, 55, 0.38);
+    filter: saturate(1.03);
   }
   
   #nk-link:active,
   #masuyama-link:active {
     transform: translateY(1px) scale(0.99);
     box-shadow:
-      0 0 0 1px rgba(212, 175, 55, 0.28),
-      0 4px 12px rgba(0, 0, 0, 0.6);
+      0 0 0 1px rgba(212, 175, 55, 0.34),
+      0 4px 16px rgba(0, 0, 0, 0.7);
   }
   
   .cards-request {
