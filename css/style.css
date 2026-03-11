@@ -433,11 +433,13 @@
       align-items: stretch;
     }
     .stock-updated {
+      display: block;
+      width: 100%;
       white-space: normal;
       margin-top: 1px;
       margin-left: 0;
       text-align: right;
-      align-self: flex-end;
+      align-self: stretch;
     }
   }
  
