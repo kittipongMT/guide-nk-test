@@ -386,6 +386,7 @@
     flex-wrap: wrap;
     align-items: baseline;
     gap: 6px;
+  flex: 1;
   }
 
   .stock-heading {
@@ -416,6 +417,8 @@
     font-size: 0.65rem;
     color: rgba(220, 252, 231, 0.78);
     white-space: nowrap;
+  margin-left: auto;
+  text-align: right;
   }
   
   @media (max-width: 480px) {
@@ -427,11 +430,14 @@
        ป้องกันข้อความ EN ยาว ๆ ไปดัน icon หล่นลงด้านล่าง */
     .stock-heading-group {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
     }
     .stock-updated {
       white-space: normal;
       margin-top: 1px;
+      margin-left: 0;
+      text-align: right;
+      align-self: flex-end;
     }
   }
  
