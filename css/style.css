@@ -453,6 +453,7 @@
       margin-left: 0;
       text-align: right;
       align-self: stretch;
+      font-size: 0.55rem; /* ลดขนาดเฉพาะหน้าจอเล็ก */
     }
   }
  
