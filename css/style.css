@@ -436,6 +436,14 @@
       flex-direction: column;
       align-items: stretch;
       flex-wrap: nowrap;
+      min-width: 0; /* กัน flex item ดันกันจนล้น/ดูเหมือนเลย์เอาต์หล่น */
+    }
+    .stock-heading,
+    .stock-updated {
+      line-height: 1.2;
+    }
+    .stock-indicator {
+      margin-top: 2px; /* เลื่อนจุดให้เข้ากับบรรทัดแรก */
     }
     .stock-updated {
       display: block;
