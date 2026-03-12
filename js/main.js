@@ -79,6 +79,17 @@ function getI18n() {
   return texts[lang] || texts.th;
 }
 
+function isMobileLayout() {
+  return typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 480px)").matches;
+}
+
+function formatUpdatedText(t, updatedAt) {
+  if (!updatedAt) return "";
+  // มือถือ: ซ่อนคำว่า "อัปเดตล่าสุด/Last updated" เหลือเฉพาะวันเวลา เพื่อลดการดันเลย์เอาต์ในช่องแคบ
+  if (isMobileLayout()) return `(${updatedAt})`;
+  return `(${t.stockUpdated}: ${updatedAt})`;
+}
+
 function renderStockFromDataset({ bannerId, headingId, updatedId, companyValueId, clinicValueId, defaultHeading }) {
   const t = getI18n();
   const bannerEl = document.getElementById(bannerId);
@@ -100,7 +111,7 @@ function renderStockFromDataset({ bannerId, headingId, updatedId, companyValueId
     clinicEl.textContent = `${bannerEl.dataset.clinicRemaining} ${t.stockUnits}`;
   }
   if (updatedEl && bannerEl.dataset.updatedAt) {
-    updatedEl.textContent = `(${t.stockUpdated}: ${bannerEl.dataset.updatedAt})`;
+    updatedEl.textContent = formatUpdatedText(t, bannerEl.dataset.updatedAt);
   }
 }
 
@@ -151,7 +162,7 @@ async function loadNkStock({ url, bannerId, headingId, updatedId, companyValueId
     }
 
     if (data.updatedAt) {
-      updatedEl.textContent = `(${t.stockUpdated}: ${data.updatedAt})`;
+      updatedEl.textContent = formatUpdatedText(t, data.updatedAt);
       bannerEl.dataset.updatedAt = String(data.updatedAt);
     }
 
@@ -194,5 +205,25 @@ document.addEventListener("DOMContentLoaded", () => {
     companyValueId: "nk-stock-company-value",
     clinicValueId: "nk-stock-clinic-value",
     defaultHeading: "NK VUE TUBE LOT 14",
+  });
+
+  // ถ้าหมุนจอ/เปลี่ยนขนาดหน้าจอ ให้ re-render ข้อความอัปเดตให้เหมาะกับมือถือ/เดสก์ท็อปทันที (ไม่ต้อง fetch ใหม่)
+  window.addEventListener("resize", () => {
+    renderStockFromDataset({
+      bannerId: "nk-stock-banner-lot13",
+      headingId: "nk-stock-heading-lot13",
+      updatedId: "nk-stock-updated-lot13",
+      companyValueId: "nk-stock-company-value-lot13",
+      clinicValueId: "nk-stock-clinic-value-lot13",
+      defaultHeading: "NK VUE TUBE LOT 13",
+    });
+    renderStockFromDataset({
+      bannerId: "nk-stock-banner",
+      headingId: "nk-stock-heading",
+      updatedId: "nk-stock-updated",
+      companyValueId: "nk-stock-company-value",
+      clinicValueId: "nk-stock-clinic-value",
+      defaultHeading: "NK VUE TUBE LOT 14",
+    });
   });
 });
