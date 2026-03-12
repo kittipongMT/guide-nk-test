@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const savedLanguage = localStorage.getItem("site-language") || "th";
   setLanguage(savedLanguage, false);
-  loadNkStock({
+  const lot13Config = {
     url: STOCK_API_URL_LOT13,
     bannerId: "nk-stock-banner-lot13",
     headingId: "nk-stock-heading-lot13",
@@ -190,8 +190,8 @@ document.addEventListener("DOMContentLoaded", () => {
     companyValueId: "nk-stock-company-value-lot13",
     clinicValueId: "nk-stock-clinic-value-lot13",
     defaultHeading: "NK VUE TUBE LOT 13",
-  });
-  loadNkStock({
+  };
+  const lot14Config = {
     url: STOCK_API_URL_LOT14,
     bannerId: "nk-stock-banner",
     headingId: "nk-stock-heading",
@@ -199,7 +199,10 @@ document.addEventListener("DOMContentLoaded", () => {
     companyValueId: "nk-stock-company-value",
     clinicValueId: "nk-stock-clinic-value",
     defaultHeading: "NK VUE TUBE LOT 14",
-  });
+  };
+
+  loadNkStock(lot13Config);
+  loadNkStock(lot14Config);
 
   // ถ้าหมุนจอ/เปลี่ยนขนาดหน้าจอ ให้ re-render ข้อความอัปเดตให้เหมาะกับมือถือ/เดสก์ท็อปทันที (ไม่ต้อง fetch ใหม่)
   window.addEventListener("resize", () => {
@@ -220,4 +223,20 @@ document.addEventListener("DOMContentLoaded", () => {
       defaultHeading: "NK VUE TUBE LOT 14",
     });
   });
+
+  async function handleStockRefresh(btnEl, config) {
+    if (!btnEl) return;
+    if (btnEl.disabled) return;
+    btnEl.disabled = true;
+    try {
+      await loadNkStock(config);
+    } finally {
+      btnEl.disabled = false;
+    }
+  }
+
+  const refreshLot13 = document.getElementById("nk-stock-refresh-lot13");
+  const refreshLot14 = document.getElementById("nk-stock-refresh");
+  if (refreshLot13) refreshLot13.addEventListener("click", () => handleStockRefresh(refreshLot13, lot13Config));
+  if (refreshLot14) refreshLot14.addEventListener("click", () => handleStockRefresh(refreshLot14, lot14Config));
 });
