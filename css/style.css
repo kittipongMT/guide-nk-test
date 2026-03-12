@@ -426,11 +426,16 @@
       align-items: stretch;
       gap: 6px;
     }
+    /* มือถือ: ถ้าหัวข้อ/เวลาเป็น 2 บรรทัด ให้จุด indicator ชิดบรรทัดแรก (ไม่ถูกจัดกึ่งกลางจนดู "หล่น") */
+    .stock-header-row {
+      align-items: flex-start;
+    }
     /* บนหน้าจอแคบให้หัวข้อกับเวลาอัปเดตเรียงคนละบรรทัด
        ป้องกันข้อความ EN ยาว ๆ ไปดัน icon หล่นลงด้านล่าง */
     .stock-heading-group {
       flex-direction: column;
       align-items: stretch;
+      flex-wrap: nowrap;
     }
     .stock-updated {
       display: block;
