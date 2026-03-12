@@ -444,7 +444,7 @@
     }
     .stock-indicator {
       margin-top: 2px; /* เลื่อนจุดให้เข้ากับบรรทัดแรก */
-    }
+      }
     .stock-updated {
       display: block;
       width: 100%;
@@ -453,7 +453,7 @@
       margin-left: 0;
       text-align: right;
       align-self: stretch;
-      font-size: 0.55rem; /* ลดขนาดเฉพาะหน้าจอเล็ก */
+      font-size: 0.40rem; /* ลดขนาดเฉพาะหน้าจอเล็ก */
     }
   }
  
