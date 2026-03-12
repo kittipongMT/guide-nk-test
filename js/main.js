@@ -79,14 +79,8 @@ function getI18n() {
   return texts[lang] || texts.th;
 }
 
-function isMobileLayout() {
-  return typeof window !== "undefined" && window.matchMedia && window.matchMedia("(max-width: 480px)").matches;
-}
-
 function formatUpdatedText(t, updatedAt) {
   if (!updatedAt) return "";
-  // มือถือ: ซ่อนคำว่า "อัปเดตล่าสุด/Last updated" เหลือเฉพาะวันเวลา เพื่อลดการดันเลย์เอาต์ในช่องแคบ
-  if (isMobileLayout()) return `(${updatedAt})`;
   return `(${t.stockUpdated}: ${updatedAt})`;
 }
 
