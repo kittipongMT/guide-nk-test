@@ -216,6 +216,13 @@
     max-width: 520px;
   }
   
+  /* หน้าจอมือถือ/จอแคบ: ให้ปุ่มเรียง 1 คอลัมน์ เพื่อไม่ให้ข้อความยาว เช่น "Masuyama's Test" ถูกตัดขึ้นบรรทัดใหม่ */
+  @media (max-width: 480px) {
+    .cards-main {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (min-width: 480px) {
     .cards {
       gap: 24px;
