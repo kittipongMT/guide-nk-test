@@ -38,8 +38,7 @@
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
   }
-  
-  /* ----- Top bar ----- */
+
   .top-bar {
     background: var(--nav-bg);
     color: var(--text);
@@ -117,8 +116,7 @@
     height: auto;
     border-radius: 2px;
   }
-  
-  /* ----- Main content ----- */
+
   main {
     flex: 1;
     display: flex;
@@ -155,8 +153,7 @@
       max-width: 200px;
     }
   }
-  
-  /* ป้องกัน layout shift ตอนเปลี่ยนภาษา: reserve ความสูงให้พอทั้ง th/en */
+
   .page-title {
     font-size: 1.35rem;
     font-weight: 600;
@@ -196,8 +193,7 @@
       min-height: 3.4em;
     }
   }
-  
-  /* ----- PDF cards ----- */
+
   .cards {
     display: flex;
     flex-direction: column;
@@ -215,8 +211,7 @@
     width: 100%;
     max-width: 520px;
   }
-  
-  /* หน้าจอมือถือ/จอแคบ: ให้ปุ่มเรียง 1 คอลัมน์ เพื่อไม่ให้ข้อความยาว เช่น "Masuyama's Test" ถูกตัดขึ้นบรรทัดใหม่ */
+
   @media (max-width: 480px) {
     .cards-main {
       grid-template-columns: 1fr;
@@ -250,8 +245,7 @@
     transition: background 0.2s, border-color 0.2s, transform 0.15s;
     -webkit-tap-highlight-color: transparent;
   }
-  
-  /* ห่อข้อความใน span เพื่อให้ Safari/Chrome มือถือ จัดกึ่งกลางแนวตั้งเมื่อข้อความขึ้นหลายบรรทัด */
+
   .pdf-link-inner {
     display: flex;
     align-items: center;
@@ -279,8 +273,7 @@
     transform: scale(0.98);
     background: #1a1a1a;
   }
-  
-  /* แถบแสดงยอดคงเหลือ NK VUE TUBE ใต้ปุ่มดาวน์โหลด */
+
   .stock-banner {
     margin-top: 10px;
     padding: 10px 14px;
@@ -299,8 +292,7 @@
     color: #bbf7d0;
     font-size: 0.85rem;
   }
-  
-  /* ช่องว่างระหว่าง LOT13 และ LOT14 ให้แคบลงกว่าช่องว่างจากปุ่มดาวน์โหลด */
+
   .cards .stock-banner + .stock-banner {
     margin-top: 4px;
   }
@@ -485,7 +477,7 @@
       gap: 6px;
     }
     .stock-header-row {
-      align-items: center; /* ให้จุดกับข้อความอยู่บรรทัดเดียวกันแบบเดสก์ท็อป */
+      align-items: center;
     }
     .stock-heading-group {
       flex-direction: row;
@@ -508,7 +500,7 @@
       margin-left: auto;
       text-align: right;
       align-self: center;
-      font-size: 0.56rem; /* ลดขนาดเฉพาะหน้าจอเล็ก */
+      font-size: 0.56rem;
     }
     .stock-refresh-btn {
       width: 24px;
@@ -517,7 +509,6 @@
     }
   }
  
-/* ปุ่ม NK Test / Masuyama: กรอบทองเรียบหรู เข้าชุดกับโลโก้ */
   #nk-link,
   #masuyama-link {
     position: relative;
@@ -638,8 +629,7 @@
     color: #f4f4f5;
     border-radius: var(--radius);
   }
-  
-  /* ----- Contact strip ----- */
+
   .contact-strip {
     width: 100%;
     max-width: 400px;
@@ -673,8 +663,7 @@
     color: var(--text-muted);
     line-height: 1.55;
   }
-  
-  /* แต่ละช่องติดต่อ reserve ความสูงเท่ากัน ป้องกัน layout shift */
+
   .contact-grid > div {
     min-height: 4.5em;
   }
@@ -712,8 +701,7 @@
     font-size: 0.8rem;
     color: var(--text-muted);
   }
-  
-  /* ----- Footer ----- */
+
   footer.site-footer {
     background: #050505;
     color: var(--text-muted);
@@ -761,8 +749,7 @@
     align-items: center;
     transition: opacity 0.2s ease;
   }
-  
-  /* ตอนเปลี่ยนภาษา ลดการกระตุกด้วย transition สั้นๆ */
+
   body.lang-switching .container {
     opacity: 0.85;
   }

@@ -1,9 +1,3 @@
-/**
- * สร้าง favicon จาก assets/images/logo.png
- * ใช้: node scripts/make-favicon.js
- * ต้องติดตั้ง: npm install sharp
- */
-
 const fs = require('fs');
 const path = require('path');
 
