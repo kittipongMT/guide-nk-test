@@ -28,6 +28,8 @@ const texts = {
       stockClinicDetailNoPositiveRemaining:
         "ไม่มีคลินิกที่มียอดคงเหลือมากกว่า 0 ในตารางนี้ — ใช้ช่องค้นหาเพื่อดูรายชื่อและยอดคงเหลือ (รวมยอด 0)",
       stockClinicSearchPlaceholder: "ค้นหาชื่อคลินิก...",
+      stockTubeListPrefix: "เลขหลอดคงเหลือ",
+      stockTubeListEmpty: "ไม่พบเลขหลอดคงเหลือสำหรับคลินิกนี้",
       stockModalClose: "ปิด",
       stockColOrder: "ลำดับ",
       stockColClinic: "รายชื่อคลินิก",
@@ -73,6 +75,8 @@ const texts = {
       stockClinicDetailNoPositiveRemaining:
         "No clinics with remaining stock above 0 in this list — use search to find a clinic (including 0).",
       stockClinicSearchPlaceholder: "Search clinic name...",
+      stockTubeListPrefix: "Remaining tube numbers",
+      stockTubeListEmpty: "No remaining tube numbers found for this clinic.",
       stockModalClose: "Close",
       stockColOrder: "#",
       stockColClinic: "Clinic",

@@ -11,6 +11,8 @@ let lot13ClinicSearchQuery = "";
 let lot14ClinicSearchQuery = "";
 let lot13ClinicSuggestions = [];
 let lot14ClinicSuggestions = [];
+let expandedLot13ClinicKey = "";
+let expandedLot14ClinicKey = "";
 
 const CLINIC_TABLE_COLS = [
   { keys: ["order"], labelKey: "stockColOrder" },
@@ -39,6 +41,38 @@ function normalizeText(value) {
 
 function getClinicName(row) {
   return String(firstDefined(row, ["clinicName", "name", "clinic"]) || "").trim();
+}
+
+function getClinicKey(row) {
+  return normalizeText(getClinicName(row));
+}
+
+function normalizeTubeNoToken(value) {
+  return String(value || "").trim();
+}
+
+function parseTubeNosFromUnknown(raw) {
+  if (Array.isArray(raw)) {
+    return raw.map(normalizeTubeNoToken).filter(Boolean);
+  }
+  const text = String(raw || "").trim();
+  if (!text) return [];
+  return text
+    .split(/[\n,]/g)
+    .map(normalizeTubeNoToken)
+    .filter(Boolean);
+}
+
+function getRemainingTubeNos(row) {
+  const raw = firstDefined(row, [
+    "remainingTubeNos",
+    "remainingTubeNumbers",
+    "tubeNumbers",
+    "tubeNoList",
+    "tubeNos",
+    "remainingTubeNoCsv",
+  ]);
+  return parseTubeNosFromUnknown(raw);
 }
 
 function getRemainingNumeric(row) {
@@ -267,13 +301,49 @@ function fillLot13ClinicTable() {
 
   const frag = document.createDocumentFragment();
   for (const row of filteredRows) {
+    const rowKey = getClinicKey(row);
+    const tubeNos = getRemainingTubeNos(row);
+    const isExpandable = tubeNos.length > 0;
+    const isExpanded = isExpandable && expandedLot13ClinicKey === rowKey;
     const tr = document.createElement("tr");
+    tr.className = "nk-clinic-row";
+    if (isExpandable) tr.classList.add("is-expandable");
+    if (isExpanded) tr.classList.add("is-expanded");
     for (const col of CLINIC_TABLE_COLS) {
       const td = document.createElement("td");
       td.textContent = formatBreakdownCell(firstDefined(row, col.keys));
+      if (col.labelKey === "stockColClinic") {
+        td.classList.add("nk-clinic-cell-name");
+      }
       tr.appendChild(td);
     }
     frag.appendChild(tr);
+    if (isExpandable) {
+      tr.setAttribute("role", "button");
+      tr.setAttribute("tabindex", "0");
+      tr.setAttribute("aria-expanded", String(isExpanded));
+      const onToggle = () => {
+        expandedLot13ClinicKey = expandedLot13ClinicKey === rowKey ? "" : rowKey;
+        fillLot13ClinicTable();
+      };
+      tr.addEventListener("click", onToggle);
+      tr.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onToggle();
+        }
+      });
+    }
+    if (isExpanded) {
+      const detailTr = document.createElement("tr");
+      detailTr.className = "nk-clinic-row-detail";
+      const detailTd = document.createElement("td");
+      detailTd.colSpan = CLINIC_TABLE_COLS.length;
+      const listText = tubeNos.length ? tubeNos.join(", ") : t.stockTubeListEmpty || "";
+      detailTd.textContent = `${t.stockTubeListPrefix || ""}: ${listText}`;
+      detailTr.appendChild(detailTd);
+      frag.appendChild(detailTr);
+    }
   }
   bodyEl.innerHTML = "";
   bodyEl.appendChild(frag);
@@ -323,13 +393,49 @@ function fillLot14ClinicTable() {
 
   const frag = document.createDocumentFragment();
   for (const row of filteredRows) {
+    const rowKey = getClinicKey(row);
+    const tubeNos = getRemainingTubeNos(row);
+    const isExpandable = tubeNos.length > 0;
+    const isExpanded = isExpandable && expandedLot14ClinicKey === rowKey;
     const tr = document.createElement("tr");
+    tr.className = "nk-clinic-row";
+    if (isExpandable) tr.classList.add("is-expandable");
+    if (isExpanded) tr.classList.add("is-expanded");
     for (const col of CLINIC_TABLE_COLS) {
       const td = document.createElement("td");
       td.textContent = formatBreakdownCell(firstDefined(row, col.keys));
+      if (col.labelKey === "stockColClinic") {
+        td.classList.add("nk-clinic-cell-name");
+      }
       tr.appendChild(td);
     }
     frag.appendChild(tr);
+    if (isExpandable) {
+      tr.setAttribute("role", "button");
+      tr.setAttribute("tabindex", "0");
+      tr.setAttribute("aria-expanded", String(isExpanded));
+      const onToggle = () => {
+        expandedLot14ClinicKey = expandedLot14ClinicKey === rowKey ? "" : rowKey;
+        fillLot14ClinicTable();
+      };
+      tr.addEventListener("click", onToggle);
+      tr.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onToggle();
+        }
+      });
+    }
+    if (isExpanded) {
+      const detailTr = document.createElement("tr");
+      detailTr.className = "nk-clinic-row-detail";
+      const detailTd = document.createElement("td");
+      detailTd.colSpan = CLINIC_TABLE_COLS.length;
+      const listText = tubeNos.length ? tubeNos.join(", ") : t.stockTubeListEmpty || "";
+      detailTd.textContent = `${t.stockTubeListPrefix || ""}: ${listText}`;
+      detailTr.appendChild(detailTd);
+      frag.appendChild(detailTr);
+    }
   }
   bodyEl.innerHTML = "";
   bodyEl.appendChild(frag);
@@ -340,6 +446,7 @@ function openLot13ClinicDialog() {
   if (!dlg || typeof dlg.showModal !== "function") return;
   const inputEl = document.getElementById("nk-clinic-search-input-lot13");
   lot13ClinicSearchQuery = "";
+  expandedLot13ClinicKey = "";
   if (inputEl) inputEl.value = "";
   updateLot13Suggestions();
   fillLot13ClinicTable();
@@ -358,6 +465,7 @@ function openLot14ClinicDialog() {
   if (!dlg || typeof dlg.showModal !== "function") return;
   const inputEl = document.getElementById("nk-clinic-search-input-lot14");
   lot14ClinicSearchQuery = "";
+  expandedLot14ClinicKey = "";
   if (inputEl) inputEl.value = "";
   updateLot14Suggestions();
   fillLot14ClinicTable();
@@ -696,6 +804,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dlgLot13.addEventListener("close", () => {
       lot13ClinicSearchQuery = "";
       lot13ClinicSuggestions = [];
+      expandedLot13ClinicKey = "";
       const inputEl = document.getElementById("nk-clinic-search-input-lot13");
       const suggestEl = document.getElementById("nk-clinic-search-suggest-lot13");
       if (inputEl) inputEl.value = "";
@@ -724,6 +833,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dlgLot14.addEventListener("close", () => {
       lot14ClinicSearchQuery = "";
       lot14ClinicSuggestions = [];
+      expandedLot14ClinicKey = "";
       const inputEl = document.getElementById("nk-clinic-search-input-lot14");
       const suggestEl = document.getElementById("nk-clinic-search-suggest-lot14");
       if (inputEl) inputEl.value = "";
