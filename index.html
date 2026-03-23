@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta name="theme-color" content="#0a0a0a">
+
+  <meta name="description" content="คู่มือส่งตรวจ MEDEZE NK สำหรับเลือกดูวิธีการส่งตัวอย่างตามประเภทการตรวจ">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <title>คู่มือส่งตรวจ | MEDEZE NK</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <link rel="stylesheet" href="css/style.css?v=1.012">
+
+</head>
+
+<body>
+
+<header class="top-bar">
+
+  <a href="https://medezenk.com/" target="_blank" rel="noopener" class="main-site-link">
+    ← Medeze NK
+  </a>
+
+  <div class="lang-top">
+
+    <button type="button" data-lang="th" id="btn-th" class="active" aria-pressed="true">
+      <img src="https://flagcdn.com/w20/th.png" alt="">
+      ไทย
+    </button>
+
+    <button type="button" data-lang="en" id="btn-en" aria-pressed="false">
+      <img src="https://flagcdn.com/w20/gb.png" alt="">
+      EN
+    </button>
+
+  </div>
+
+</header>
+
+
+<main>
+
+<div class="container">
+
+  <div class="logo-block">
+    <img src="assets/images/logo.png" alt="Medeze NK">
+  </div>
+
+
+  <h1 class="page-title" id="main-title">
+    กรุณาเลือกคู่มือส่งตรวจ
+  </h1>
+
+  <p class="page-subtitle" id="page-subtitle">
+    เลือกคู่มือการส่งตัวอย่างที่ตรงกับประเภทการตรวจของคุณ
+  </p>
+
+
+  <div class="cards">
+    <div class="cards-main">
+      <a class="pdf-link"
+         id="nk-link"
+         href="assets/pdf/nk-guide.pdf"
+         target="_blank"
+         rel="noopener">
+         <span class="pdf-link-inner" id="nk-link-text">NK Test</span>
+      </a>
+      <a class="pdf-link"
+         id="masuyama-link"
+         href="assets/pdf/masuyama-guide.pdf"
+         target="_blank"
+         rel="noopener">
+         <span class="pdf-link-inner" id="masuyama-link-text">Masuyama's Test</span>
+      </a>
+    </div>
+    <div class="stock-banner" id="nk-stock-banner-lot13" aria-live="polite">
+      <div class="stock-header-row">
+        <span class="stock-indicator">
+          <span class="stock-indicator-dot"></span>
+        </span>
+        <div class="stock-heading-group">
+          <span class="stock-heading" id="nk-stock-heading-lot13">NK VUE TUBE LOT 13</span>
+          <span class="stock-updated" id="nk-stock-updated-lot13"></span>
+          <button class="stock-refresh-btn" id="nk-stock-refresh-lot13" type="button" aria-label="รีเฟรชข้อมูลสต็อก LOT 13" title="รีเฟรช">
+            ↻
+          </button>
+        </div>
+      </div>
+      <div class="stock-row">
+        <span class="stock-label" id="nk-stock-company-label-lot13">คงเหลือที่บริษัท</span>
+        <span class="stock-value" id="nk-stock-company-value-lot13">–</span>
+      </div>
+      <div class="stock-row">
+        <span class="stock-label" id="nk-stock-clinic-label-lot13">คงเหลือที่คลินิกทั้งหมด</span>
+        <span class="stock-value" id="nk-stock-clinic-value-lot13">–</span>
+      </div>
+      <div class="stock-banner-actions">
+        <button type="button" class="stock-detail-btn" id="nk-stock-detail-lot13" aria-haspopup="dialog" aria-controls="nk-clinic-dialog-lot13">
+          ดูยอดคงเหลือรายคลินิก
+        </button>
+      </div>
+    </div>
+    <div class="stock-banner" id="nk-stock-banner" aria-live="polite">
+      <div class="stock-header-row">
+        <span class="stock-indicator">
+          <span class="stock-indicator-dot"></span>
+        </span>
+        <div class="stock-heading-group">
+          <span class="stock-heading" id="nk-stock-heading">NK VUE TUBE LOT 14</span>
+          <span class="stock-updated" id="nk-stock-updated"></span>
+          <button class="stock-refresh-btn" id="nk-stock-refresh" type="button" aria-label="รีเฟรชข้อมูลสต็อก LOT 14" title="รีเฟรช">
+            ↻
+          </button>
+        </div>
+      </div>
+      <div class="stock-row">
+        <span class="stock-label" id="nk-stock-company-label">คงเหลือที่บริษัท</span>
+        <span class="stock-value" id="nk-stock-company-value">–</span>
+      </div>
+      <div class="stock-row">
+        <span class="stock-label" id="nk-stock-clinic-label">คงเหลือที่คลินิกทั้งหมด</span>
+        <span class="stock-value" id="nk-stock-clinic-value">–</span>
+      </div>
+      <div class="stock-banner-actions">
+        <button type="button" class="stock-detail-btn" id="nk-stock-detail-lot14" aria-haspopup="dialog" aria-controls="nk-clinic-dialog-lot14">
+          ดูยอดคงเหลือรายคลินิก
+        </button>
+      </div>
+    </div>
+    <div class="cards-request">
+      <p class="cards-request-label" id="request-form-label">เอกสารประกอบการส่งตัวอย่าง</p>
+      <a class="pdf-link pdf-link-small"
+         id="request-form-link"
+         href="assets/pdf/request-form.pdf"
+         target="_blank"
+         rel="noopener">
+         ใบส่งตรวจ
+      </a>
+    </div>
+  </div>
+
+
+  <section class="contact-strip" aria-labelledby="contact-heading">
+
+    <h2 id="contact-heading">
+      ติดต่อเรา
+    </h2>
+
+    <div class="contact-grid">
+
+      <div>
+        <strong id="label-line">LINE</strong><br>
+        <a id="line-link" href="https://line.me/ti/p/~khunarms" target="_blank" rel="noopener">เพิ่มเพื่อน LINE</a><br>
+        <span class="contact-line-id"><span id="label-line-id">ID Line :</span> khunarms</span>
+      </div>
+
+
+      <div>
+        <strong id="label-email">อีเมล</strong><br>
+        <a href="mailto:kittipong.p@medezenk.com">kittipong.p@medezenk.com</a><br>
+        <a href="mailto:phatchara@medezenk.com">phatchara@medezenk.com</a>
+      </div>
+
+
+      <div>
+        <strong id="label-address">ที่อยู่</strong><br>
+        <span id="address">
+        28/9 หมู่ 8 ถ.พุทธมณฑลสาย 4
+        ต.กระทุ่มล้ม อ.สามพราน
+        นครปฐม 73220
+        </span>
+      </div>
+
+
+      <div>
+        <strong id="label-hours">เวลาทำการ</strong><br>
+        <span id="hours">
+        จันทร์–ศุกร์ 08:30–17:30 น.
+        </span>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+</main>
+
+
+<footer class="site-footer">
+
+  <p class="footer-brand">
+    Medical Technology Laboratory
+  </p>
+
+  <p>
+    © 2025 Medeze NK ·
+    <a href="https://medezenk.com/" target="_blank" rel="noopener">
+    medezenk.com
+    </a>
+  </p>
+
+  <p class="footer-parent">
+    <a href="https://www.medezegroup.com/" target="_blank" rel="noopener">
+    A division of MEDEZE GROUP
+    </a>
+  </p>
+
+</footer>
+
+<dialog class="nk-clinic-dialog" id="nk-clinic-dialog-lot13" aria-labelledby="nk-clinic-dialog-title-lot13">
+  <div class="nk-clinic-dialog-panel">
+    <div class="nk-clinic-dialog-head">
+      <h2 class="nk-clinic-dialog-title" id="nk-clinic-dialog-title-lot13">ยอดคงเหลือตามคลินิก (LOT 13)</h2>
+      <button type="button" class="nk-clinic-dialog-x" id="nk-clinic-dialog-close-lot13" aria-label="ปิด">×</button>
+    </div>
+    <div class="nk-clinic-dialog-body">
+      <div class="nk-clinic-search" id="nk-clinic-search-lot13">
+        <input
+          type="text"
+          class="nk-clinic-search-input"
+          id="nk-clinic-search-input-lot13"
+          autocomplete="off"
+          placeholder="ค้นหาชื่อคลินิก..."
+          aria-label="ค้นหาชื่อคลินิก"
+        >
+        <ul class="nk-clinic-search-suggest" id="nk-clinic-search-suggest-lot13" hidden></ul>
+      </div>
+      <p class="nk-clinic-dialog-empty" id="nk-clinic-dialog-empty-lot13" hidden></p>
+      <div class="nk-clinic-table-wrap" id="nk-clinic-table-wrap-lot13">
+        <table class="nk-clinic-table" id="nk-clinic-table-lot13">
+          <thead id="nk-clinic-table-head-lot13"></thead>
+          <tbody id="nk-clinic-table-body-lot13"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="nk-clinic-dialog-foot">
+      <button type="button" class="nk-clinic-dialog-done" id="nk-clinic-dialog-done-lot13">ปิด</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="nk-clinic-dialog" id="nk-clinic-dialog-lot14" aria-labelledby="nk-clinic-dialog-title-lot14">
+  <div class="nk-clinic-dialog-panel">
+    <div class="nk-clinic-dialog-head">
+      <h2 class="nk-clinic-dialog-title" id="nk-clinic-dialog-title-lot14">ยอดคงเหลือตามคลินิก (LOT 14)</h2>
+      <button type="button" class="nk-clinic-dialog-x" id="nk-clinic-dialog-close-lot14" aria-label="ปิด">×</button>
+    </div>
+    <div class="nk-clinic-dialog-body">
+      <div class="nk-clinic-search" id="nk-clinic-search-lot14">
+        <input
+          type="text"
+          class="nk-clinic-search-input"
+          id="nk-clinic-search-input-lot14"
+          autocomplete="off"
+          placeholder="ค้นหาชื่อคลินิก..."
+          aria-label="ค้นหาชื่อคลินิก"
+        >
+        <ul class="nk-clinic-search-suggest" id="nk-clinic-search-suggest-lot14" hidden></ul>
+      </div>
+      <p class="nk-clinic-dialog-empty" id="nk-clinic-dialog-empty-lot14" hidden></p>
+      <div class="nk-clinic-table-wrap" id="nk-clinic-table-wrap-lot14">
+        <table class="nk-clinic-table" id="nk-clinic-table-lot14">
+          <thead id="nk-clinic-table-head-lot14"></thead>
+          <tbody id="nk-clinic-table-body-lot14"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="nk-clinic-dialog-foot">
+      <button type="button" class="nk-clinic-dialog-done" id="nk-clinic-dialog-done-lot14">ปิด</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="js/translations.js?v=1.005"></script>
+
+<script src="js/main.js?v=1.008"></script>
+
+</body>
+</html>
