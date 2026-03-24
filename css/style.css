@@ -25,10 +25,15 @@
   
   html {
     -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   
   body {
     margin: 0;
+    width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     min-height: -webkit-fill-available;
     font-family: 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -37,6 +42,7 @@
     display: flex;
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   .top-bar {
